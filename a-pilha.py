@@ -30,9 +30,9 @@ class Automato:
         estados = [] if estados is None else estados.copy()
         
         # se o estado a ser analisado esta
-        # entre os estados finais e a palavra
-        # estiver vazia, a palavra eh aceita
-        if estado in self.estadosFinais and palavra == '-':
+        # entre os estados finais. a palavra
+        # e a pilha estiverem vazias, a palavra eh aceita
+        if estado in self.estadosFinais and palavra == '-' and p.pilha == ['-']:
             yield True, estados
 
         # a variavel indica se alguma regra de
@@ -65,7 +65,7 @@ class Automato:
             cond08 = regra.simboloLidoPilha == p.pilha[-1]
             cond09 = regra.simboloLidoPilha == '-'
                 
-            if ((cond01 and cond02) and (cond03 and cond04)) or (cond05
+            if ((cond01 and cond02) and (cond03 and cond04) and cond5) or (cond05
                 and (cond06 or cond07) and (cond08 or cond09)):
                 flag = True
                 
