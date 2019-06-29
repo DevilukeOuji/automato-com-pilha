@@ -117,8 +117,15 @@ Representa um autômato com pilha.
 
 ### Função `lerArquivo`
 
-    A SER ADICIONADO
-
+    Esta função contém a gramática e as regras de produção do respectivo autômato. Aqui o arquivo é aberto (open()), lido (readline()) e fechado (close()).
+    No for, para todo elemento na faixa que varia de 0 ao tamanho das regras de produção do autômato, caso ele (elemento) seja menor que o tamanho das tais regras de produção -1, atualiza-se a lista prod, somando a ela as produções do autômato, come exceção do último elemento. Caso contrário (else), a soma é também feita, porém o último elemento é inserido.
+    Posteriormente, a variável gramática, que antes havia recebido a função abrirArquivo.readlines(), é atualizada, recebendo outras funções como replace e split, conforme a "sintaxe" correta da gramática do autômato. Por fim, a função retorna a variável gramática e a lista prod[], guardando os novos valores.
+    
+    Fora da função lerArquivo:
+        A partir daqui, os elementos da gramática são tratados (como o conjunto de estados iniciais) para que sejam recebidos na classe autômato. É nessa função que há a entrada para o nome do arquivo, na qual a palavra está contida.
+        Além disso, é verificado se algum caractere da palavra não está n o conjunto de símbolos válidos do alfabeto de entrada do autômato. Caso um símbolo não esteja, portanto, no alfabeto do autômato, um aviso ao usuário é imprimido.
+        
+------
 
 ## Exemplo de execução
 
