@@ -171,18 +171,18 @@ def lerArquivo(file):
 # (como o conjunto de estados iniciais)
 # para que sejam recebidos na classe autômato
 def tratarS(gram):
-    alf = []; est = []; est_finais = []; L1 = []; comp = []
+    alf = []; est = []; est_finais = []; L1 = []; comp = [] #L1 reúne o símbolo de produção, inicial, e o alfabeto da pilha
     elem = 0
     while gram != []:
         gram[elem] = str(gram[elem])
         if len(gram[elem]) == 1 and (gram[elem].islower() or gram[elem].isnumeric()):
             alf += [gram[elem]]
-        if len(gram[elem]) == 2:
+        elif len(gram[elem]) == 2 or len(gram[elem]) == 3:
             if gram[elem] not in est:
                 est += [gram[elem]]
             else:
                 est_finais += [gram[elem]]
-        if gram[elem].isupper():
+        elif gram[elem].isupper():
             L1 += [gram[elem]]
             if elem + 1 < len(gram):
                 L1 += [gram[elem + 1]]
